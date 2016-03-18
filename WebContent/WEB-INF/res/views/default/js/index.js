@@ -1,6 +1,6 @@
 $(function() {
 	$(".btnlogin").click(function() {
-		alert("jids");
+		alert("js");
 		var username = $(".txtlogin:first").val();
 		var password = $(".txtlogin:last").val();
 		if ("" != username && "" != password) {
@@ -8,8 +8,9 @@ $(function() {
 			var data = {};
 			data.username = username;
 			data.password = password;
-			alert("232");
+			alert("2");
 			console.info("23");
+			
 			$.post(url, data, function(data) {
 				alert("2");
 				if (data == "1") {
