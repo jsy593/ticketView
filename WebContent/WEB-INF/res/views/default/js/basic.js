@@ -1,8 +1,8 @@
 // JavaScript Document
 $(document).ready(function(){
 							   //给标题加上背景色以及鼠标移动到某一行的事加上背景色
-							   $(".bheTable tr:first-child").css("background-color","#f3f7fb");
-							   $(".bheTable tr:not(:first-child)").hover(function(){
+							   $(".jsyTable tr:first-child").css("background-color","#f3f7fb");
+							   $(".jsyTable tr:not(:first-child)").hover(function(){
 															 $(this).css("background-color","#f3f7fb");
 															 },function(){
 																 $(this).css("background-color","#fff");

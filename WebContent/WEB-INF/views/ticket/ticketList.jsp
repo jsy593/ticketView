@@ -35,7 +35,7 @@
 	        </div>
 	        </form>
 	    	<div class="">
-	        	<table width="100%" border="0"  cellspacing="0" cellpadding="0" class="bheTable">
+	        	<table width="100%" border="0"  cellspacing="0" cellpadding="0" class="jsyTable">
 	                	<tr>
 	                    	<th width="35px" ><input  type="checkbox"/></th>
 	                        <th>问题</th>

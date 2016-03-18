@@ -16,7 +16,7 @@
 	    		<div class="right"><button class="addDept btnorder">添加部门</button></div>
 	    		<div class="clear"></div>
 	    		<div class="mart5">	    		
-		        	<table width="100%" border="0"  class="art_table bheTable" id="treeTable" cellspacing="0" cellpadding="0">
+		        	<table width="100%" border="0"  class="art_table jsyTable" id="treeTable" cellspacing="0" cellpadding="0">
 		                	<tr >
 		                        <th>部门名称</th>
 		                        <th>部门管理员</th>

@@ -12,10 +12,10 @@
 	<!-- 注解扫描 -->
 	<context:annotation-config />
 	<!-- 配置扫描包路径选项 -->
-	<context:component-scan base-package="com.bhe.controller" />
+	<context:component-scan base-package="com.jsy.controller" />
 
 	<!-- spring 初始化完成事件 -->
-	<bean class="com.bhe.develop.spring.SpringContextRefreshedEvent" />
+	<bean class="com.jsy.develop.spring.SpringContextRefreshedEvent" />
 
 	
 

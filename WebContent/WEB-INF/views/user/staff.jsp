@@ -36,7 +36,7 @@
 	        </form>
 	    	<div class="clear"></div>
 	        <div>
-	        	<table width="100%" border="0"  cellspacing="0" cellpadding="0" class="bheTable">
+	        	<table width="100%" border="0"  cellspacing="0" cellpadding="0" class="jsyTable">
 	                	<tr>
 	                    	<th width="35px" ><input  type="checkbox"/></th>
 	                        <th>姓名</th>

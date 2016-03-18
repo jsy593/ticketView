@@ -14,7 +14,7 @@
     	<div class="right"  style="width:79%; min-height:800px;" >
     		<div class="right" style="position:relative"><button class="addQuestionType btnorder">添加分类</button></div>
         	<div class="clear">
-	        	<table width="100%" border="0"  class="art_table bheTable" id="treeTable" cellspacing="0" cellpadding="0">
+	        	<table width="100%" border="0"  class="art_table jsyTable" id="treeTable" cellspacing="0" cellpadding="0">
 	                	<tr >
 	                        <th>分类名称</th>
 	                        <th>所属部门</th>

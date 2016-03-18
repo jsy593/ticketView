@@ -33,7 +33,7 @@
 <!--         </div> -->
 <!--         </form> -->
     	<div class="">
-        	<table width="100%" border="0"  cellspacing="0" cellpadding="0" class="bheTable">
+        	<table width="100%" border="0"  cellspacing="0" cellpadding="0" class="jsyTable">
                 	<tr>
                         <th>问题</th>
                         <th>状态</th>

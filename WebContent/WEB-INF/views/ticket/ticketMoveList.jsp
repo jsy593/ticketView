@@ -10,7 +10,7 @@
 	
 	<div class="wrap" style="margin-top:50px;">
     	<div class="margincenter">
-        	<table width="100%" border="0"  cellspacing="0" cellpadding="0" class="bheTable">
+        	<table width="100%" border="0"  cellspacing="0" cellpadding="0" class="jsyTable">
                 	<tr>
                         <th>发起人</th>
                         <th>接收人</th>

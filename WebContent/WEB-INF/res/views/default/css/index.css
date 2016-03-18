@@ -30,9 +30,9 @@
 /*home页面样式结束*/
 
 /*admin管理页面开始*/
-.bheTable{ width:100%;}
-.bheTable tr th{ height:30px; line-height:30px; border:1px solid #ccc; font-size:14px;}
-.bheTable tr td{ text-align:center; height:38px; line-height:38px; border:1px solid #ccc; font-size:12px; }
+.jsyTable{ width:100%;}
+.jsyTable tr th{ height:30px; line-height:30px; border:1px solid #ccc; font-size:14px;}
+.jsyTable tr td{ text-align:center; height:38px; line-height:38px; border:1px solid #ccc; font-size:12px; }
 .selestatiu{width:100px; height:26px; border:1px solid #ccc;}
 .txtsearch{width:150px; height:26px; line-height:26px; border:1px solid #ccc; margin:0 5px; text-indent:2px;}
 .searchdiv{margin:10px 0;}

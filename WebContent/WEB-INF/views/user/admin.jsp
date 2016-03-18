@@ -29,7 +29,7 @@
 	        </form>
 	    	<div class="clear"></div>
 	        <div>
-	        	<table class="bheTable"  cellspadding="0" cellspacing="0">
+	        	<table class="jsyTable"  cellspadding="0" cellspacing="0">
 	                	<tr>
 	                    	<th width="35px" ><input  type="checkbox"/></th>
 	                        <th>用户名</th>
