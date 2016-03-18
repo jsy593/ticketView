@@ -10,7 +10,6 @@ $(function() {
 			data.password = password;
 			alert("2");
 			console.info("23");
-			
 			$.post(url, data, function(data) {
 				alert("2");
 				if (data == "1") {

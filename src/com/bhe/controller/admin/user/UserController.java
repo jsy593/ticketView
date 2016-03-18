@@ -39,7 +39,7 @@ public class UserController extends BaseController {
 	 * @param session
 	 * @return
 	 */
-	@RequestMapping(value = "login")
+	@RequestMapping(value = "/login")
 	@ResponseBody
 	public String login(@RequestParam Map<String, String> data, HttpSession session) {
 
