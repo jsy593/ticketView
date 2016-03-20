@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"  pageEncoding="utf-8"%>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
-<link href="res/views/default/css/basic.css" rel="stylesheet" />
-<link href="res/views/default/css/index.css" rel="stylesheet" />
 <body>
 	<div class="clear"></div>
 		<div class="wrap">

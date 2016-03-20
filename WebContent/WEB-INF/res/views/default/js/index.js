@@ -9,7 +9,7 @@ $(function() {
 			data.password = password;
 			$.post(url, data, function(data) {
 				if (data == "1") {
-					location.href = "toHome"
+					location.href = "toPersonalCenter"
 				}
 				if (data == "4") {
 					alert("用户不存在！");

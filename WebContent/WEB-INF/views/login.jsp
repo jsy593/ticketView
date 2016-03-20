@@ -1,11 +1,9 @@
-
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html >
 <html lang="en" class="no-js">
-
     <head>
-
         <meta charset="utf-8">
-        <title>Fullscreen Login</title>
+        <title>登录</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">

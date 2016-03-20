@@ -36,7 +36,7 @@ public class TicketController extends BaseController {
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/toTicketMoveList")
 	public String toTicketMoveList(Model model, @RequestParam Map<String, String> dataMap, HttpSession session) {
-		model.addAttribute("titleNo", 2);
+		model.addAttribute("titleNo", 7);
 		if (CommonUtil.isEmpty(dataMap.get("pageIndex"))) {
 			dataMap.put("pageIndex", "1");
 		}
@@ -64,7 +64,7 @@ public class TicketController extends BaseController {
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/ticketList")
 	public String ticketList(@RequestParam Map<String, String> data, Model model, HttpSession session) {
-		model.addAttribute("titleNo", 1);
+		model.addAttribute("titleNo", 6);
 		if (CommonUtil.isEmpty(data.get("pageIndex"))) {
 			data.put("pageIndex", "1");
 		}

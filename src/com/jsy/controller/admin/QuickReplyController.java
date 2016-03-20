@@ -31,6 +31,8 @@ public class QuickReplyController extends BaseController{
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/quickReply")
 	public String knowledgeBase(@RequestParam Map<String, String> data, Model model,HttpSession session) {
+		// 添加标题高亮
+		model.addAttribute("titleNo", 12);
 		int state = -1;
 		Map<String, Object> userInfo = (Map<String, Object>) session.getAttribute("userinfo");
 		data.put("userId",userInfo.get("uuid").toString());

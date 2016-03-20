@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -13,10 +14,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jsy.controller.BaseController;
 import com.jsy.util.CommonUtil;
 import com.jsy.util.ConstantUtil;
+import com.jsy.util.FileUtil;
 import com.jsy.util.HttpUtil;
 import com.jsy.util.JsonUtil;
 import com.jsy.util.MD5Util;
@@ -77,7 +80,7 @@ public class UserController extends BaseController {
 	 */
 	@RequestMapping(value = "/toLogin")
 	public String toLogin() {
-		return "/index";
+		return "login";
 	}
 
 	/**
@@ -145,7 +148,7 @@ public class UserController extends BaseController {
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/toPeopleManage")
 	public String toPeopleManage(@RequestParam Map<String, String> data, Model model) {
-		model.addAttribute("titleNo", 3);
+		model.addAttribute("titleNo", 8);
 		if (CommonUtil.isEmpty(data.get("pageIndex"))) {
 			data.put("pageIndex", "1");
 		}
@@ -339,7 +342,7 @@ public class UserController extends BaseController {
 	@RequestMapping(value = "/toRegist")
 	public String toRegist() {
 
-		return "/user/regist";
+		return ".user.regist";
 	}
 
 	/**
@@ -350,7 +353,7 @@ public class UserController extends BaseController {
 	@RequestMapping(value = "/toAddDept", method = RequestMethod.POST)
 	public String toAddDpt() {
 
-		return "/AddDepartmentPage";
+		return ".AddDepartmentPage";
 	}
 
 	/**
@@ -396,7 +399,7 @@ public class UserController extends BaseController {
 			return "redirect:/toLogin"; 
 		}
 		
-		return "/personalCenter/personalCenter";
+		return ".personalCenter.personalCenter";
 	}
 
 	
@@ -406,8 +409,9 @@ public class UserController extends BaseController {
 	 */
 	@RequestMapping(value="/toUpdatePwdMsg")
 	public String updatePage(Model model) {
-		
-		return "/personalCenter/updatePwd";
+		// 添加标题高亮
+		model.addAttribute("titleNo", 14);
+		return ".personalCenter.updatePwd";
 	}
 
 	/**
@@ -416,8 +420,9 @@ public class UserController extends BaseController {
 	 */
 	@RequestMapping(value="/toFindPwd")
 	public String findPwd(Model model) {
-		
-		return "/personalCenter/findPwd";
+		// 添加标题高亮
+		model.addAttribute("titleNo", 15);
+		return ".personalCenter.findPwd";
 	}
 	
 	
@@ -473,4 +478,44 @@ public class UserController extends BaseController {
 		return result;
 	}
 	
+	
+	/**
+	 * 修改头像页面
+	 * @return
+	 */
+	@RequestMapping("updateHeadImagePage")
+	public String updateHeadImagePage(){
+		return "personalCenter/updateHeadImage";
+	}
+
+	/**
+	 * 上传图片
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("updateHeadImage")
+	public String updateHeadImage(HttpServletRequest request, RedirectAttributes attribute) throws Exception {
+		HttpSession session = request.getSession();
+		@SuppressWarnings("unchecked")
+		Map<String, Object> userMap = (Map<String, Object>) session.getAttribute("userinfo");
+		String uuid = userMap.get("uuid").toString();
+		String imageUrl = FileUtil.upload(request, "upload", uuid);
+		Map<String, String> map= new HashMap<String, String>();
+		map.put("uuid", uuid);
+		map.put("imageUrl", imageUrl);
+		Map<String, Object> sendPostMapRequest = util.sendPostMapRequest(servicePath + "/updataUserIngo", map, UTF8);
+		Map<String, Object> result = JsonUtil.readJson2Map(sendPostMapRequest.get("respContent").toString());
+
+		if(result.get("state").toString().equals("1")){
+			request.setAttribute("message", "修改成功！");
+			userMap.put("imageUrl", imageUrl);
+			session.setAttribute("userinfo", userMap);
+		}else{
+			request.setAttribute("error", "修改失败！");
+		}
+			
+		return "personalCenter/myself";
+	}
 }

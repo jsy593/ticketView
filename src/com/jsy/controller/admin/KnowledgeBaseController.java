@@ -32,7 +32,7 @@ public class KnowledgeBaseController extends BaseController {
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/knowledgeBase")
 	public String knowledgeBase(@RequestParam Map<String, String> data, Model model, HttpSession session) {
-		model.addAttribute("titleNo", 4);
+		model.addAttribute("titleNo", 9);
 		if (CommonUtil.isEmpty(data.get("pageIndex"))) {
 			data.put("pageIndex", "1");
 		}

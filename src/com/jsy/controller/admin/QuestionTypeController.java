@@ -35,7 +35,7 @@ public class QuestionTypeController extends BaseController {
 	 */
 	@RequestMapping(value = "/toQuestionType")
 	public String toQuestionType(Model model,@RequestParam Map<String, String> data) {
-		model.addAttribute("titleNo", 2);
+		model.addAttribute("titleNo", 4);
 		if (CommonUtil.isEmpty(data.get("systemIndex"))) {
 			data.put("systemIndex", "-1");
 		}
@@ -65,7 +65,7 @@ public class QuestionTypeController extends BaseController {
 	 */
 	@RequestMapping(value = "/toQuestionTypeSmall")
 	public String toQuestionTypeSmall(Model model, @RequestParam Map<String, String> data) {
-		model.addAttribute("titleNo", 0);
+		model.addAttribute("titleNo", 5);
 		
 		if (CommonUtil.isEmpty(data.get("parentId"))) {
 			data.put("parentId", "-1");

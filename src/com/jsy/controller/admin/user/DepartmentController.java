@@ -34,7 +34,7 @@ public class DepartmentController extends BaseController {
 	 */
 	@RequestMapping(value = "/toDepartmentManager")
 	public String toDepartmentManager(Model model, @RequestParam Map<String, String> data) {
-		model.addAttribute("titleNo", 1);
+		model.addAttribute("titleNo", 3);
 		if (CommonUtil.isEmpty(data.get("systemIndex"))) {
 			data.put("systemIndex", "-1");
 		}
