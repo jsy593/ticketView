@@ -171,17 +171,14 @@
 	            </c:if>
 				<!-- 普通职员结束    -->
                   
-                  ${titleNo == 13}<br/>
-                  ${titleNo == 14}<br/>
-                  ${titleNo == 15}<br/>
 				<!-- 公共部分开始 -->
-                <li class="sub-menu open">
+                <li class="sub-menu <c:if test='${titleNo == 13 or titleNo == 14 or titleNo == 15}'>active open</c:if>">
                       <a href="javascript:;" class="">
                           <i class="icon-tasks"></i>
                           <span>个人中心</span>
                           <span class="arrow open"></span>
                       </a>
-                      <ul class="sub"  <c:if test='${titleNo == 14}'>style="display: block;"</c:if>>
+                      <ul class="sub"  <c:if test='${titleNo == 13 or titleNo == 14 or titleNo == 15}'>open</c:if>>
                       	 <li <c:if test='${titleNo == 13}'>class="active"</c:if>><a class="" href="toPersonalCenter">个人资料</a></li>
                           <li <c:if test='${titleNo == 14}'>class="active"</c:if>><a class="" href="toUpdatePwdMsg">修改密码</a></li>
                           <li <c:if test='${titleNo == 15}'>class="active"</c:if>><a class="" href="toFindPwd">找回密码</a></li>

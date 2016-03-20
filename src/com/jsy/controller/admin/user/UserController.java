@@ -395,6 +395,7 @@ public class UserController extends BaseController {
 	 */
 	@RequestMapping(value="/toPersonalCenter")
 	public String personalCenter(Model model,HttpSession session) {
+		model.addAttribute("titleNo", 13);
 		if(CommonUtil.isEmpty(session.getAttribute("userinfo"))){
 			return "redirect:/toLogin"; 
 		}
