@@ -3,8 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!-- <script type="text/javascript" src="res/views/default/js/jquery-1.8.3.min.js"></script> -->
-
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
  <!DOCTYPE html> 
  <html lang="en">
    <head> 

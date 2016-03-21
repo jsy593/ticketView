@@ -7,6 +7,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -479,44 +481,40 @@ public class UserController extends BaseController {
 		return result;
 	}
 	
-	
 	/**
-	 * 修改头像页面
-	 * @return
-	 */
-	@RequestMapping("updateHeadImagePage")
-	public String updateHeadImagePage(){
-		return "personalCenter/updateHeadImage";
-	}
-
-	/**
-	 * 上传图片
+	 * 修改个人资料
 	 * @param request
 	 * @param response
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("updateHeadImage")
-	public String updateHeadImage(HttpServletRequest request, RedirectAttributes attribute) throws Exception {
+	@RequestMapping("updateUserInfo")
+	public String updateUserInfo(@RequestParam Map<String, String> data,HttpServletRequest request) throws Exception {
 		HttpSession session = request.getSession();
 		@SuppressWarnings("unchecked")
 		Map<String, Object> userMap = (Map<String, Object>) session.getAttribute("userinfo");
+		System.out.println("Stat :" + userMap.get("status"));
 		String uuid = userMap.get("uuid").toString();
-		String imageUrl = FileUtil.upload(request, "upload", uuid);
-		Map<String, String> map= new HashMap<String, String>();
-		map.put("uuid", uuid);
-		map.put("imageUrl", imageUrl);
-		Map<String, Object> sendPostMapRequest = util.sendPostMapRequest(servicePath + "/updataUserIngo", map, UTF8);
+		Map<String, String> resultMap  = FileUtil.uploadImage(request, "upload", uuid);
+		String str = userMap.get("status").toString();
+		System.out.println("status:"+str);
+		resultMap.put("status", userMap.get("status").toString());
+		System.out.println(resultMap);
+		Map<String, Object> sendPostMapRequest = util.sendPostMapRequest(servicePath + "/updataUserIngo", resultMap, UTF8);
 		Map<String, Object> result = JsonUtil.readJson2Map(sendPostMapRequest.get("respContent").toString());
 
 		if(result.get("state").toString().equals("1")){
-			request.setAttribute("message", "修改成功！");
-			userMap.put("imageUrl", imageUrl);
+			userMap.put("sex", resultMap.get("sex"));
+			userMap.put("phone", resultMap.get("phone"));
+			userMap.put("remark", resultMap.get("remark"));
+			userMap.put("email", resultMap.get("email"));
+			userMap.put("realName", resultMap.get("realName"));
+			userMap.put("imageUrl", resultMap.get("imageUrl"));
 			session.setAttribute("userinfo", userMap);
 		}else{
 			request.setAttribute("error", "修改失败！");
 		}
 			
-		return "personalCenter/myself";
+		return ".personalCenter.personalCenter";
 	}
 }

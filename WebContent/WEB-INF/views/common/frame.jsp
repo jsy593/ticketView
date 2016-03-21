@@ -15,6 +15,7 @@
     <link href="res/bootstrap/css/bootstrap-reset.css" rel="stylesheet">
     <link href="res/bootstrap/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="res/bootstrap/css/style.css" rel="stylesheet">
+    <link href="res/bootstrap/css/all.css" rel="stylesheet">
     <link href="res/bootstrap/css/style-responsive.css" rel="stylesheet" />
     <script src="res/layer/layer.js"></script>
 	<script src="res/laydate/laydate.js"></script>

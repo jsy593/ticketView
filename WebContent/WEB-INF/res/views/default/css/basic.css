@@ -11,7 +11,12 @@ ul{list-style:none;}
 .right{float:right;} 
 .clear{clear:both;}
 
-
+.radioclass {
+opacity: 0;
+cursor: pointer;
+-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+filter: alpha(opacity=0);
+}
 
 .marr30{margin-right:30px;}
 .marr10{margin-right:10px;}

@@ -188,6 +188,7 @@ public class HttpUtil {
     	//构建POST请求的表单参数
         if(null != params){
             for(Map.Entry<String,String> entry : params.entrySet()){
+            	System.out.println(entry);
                 formParams.add(new BasicNameValuePair(entry.getKey(), entry.getValue()));
             }
         }

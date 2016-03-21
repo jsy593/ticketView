@@ -14,7 +14,7 @@
 	<div class="wrap">
     	<div class="warp-login">
         	<div class="login">
-                <div><h1 class="loginh1">jsy通用工单系统</h1></div>
+                <div><h1 class="loginh1">通用工单系统</h1></div>
                 <div class="logindiv">
                     <label class="labellogin">登录账号：</label><input  type="text" class="txtlogin"/>
                 </div>
