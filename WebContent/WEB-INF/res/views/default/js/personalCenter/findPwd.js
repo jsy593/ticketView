@@ -1,6 +1,9 @@
 var code = "";
 $(".js_sendCode").click(function(){
 	var phone = $(".js_phone").val();
+	if($.trim(phone) == null ||$.trim(phone) == ""){
+		layer.alert("请输入手机号",{icon:5});
+	}
 	var data = {};
 	data.phone = phone;
 	$.ajax({
@@ -10,10 +13,9 @@ $(".js_sendCode").click(function(){
 		dataType : "json",
 		success : function(result){
 			if("1" == result.state){
-				alert("已发送!");
+				layer.alert('已发送!', {icon: 6});
 				$(".js_sendCode").val("已发送");
 				code += result.code;
-				alert(code);
 			}
 		}
 		

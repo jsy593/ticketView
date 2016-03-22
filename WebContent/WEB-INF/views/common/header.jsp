@@ -179,7 +179,6 @@
                       	 <li <c:if test='${titleNo == 13}'>class="active"</c:if>><a class="" href="toPersonalCenter">个人资料</a></li>
                           <li <c:if test='${titleNo == 14}'>class="active"</c:if>><a class="" href="toUpdatePwdMsg">修改密码</a></li>
                           <li <c:if test='${titleNo == 15}'>class="active"</c:if>><a class="" href="toFindPwd">找回密码</a></li>
-                          <li <c:if test='${titleNo == 16}'>class="active"</c:if>><a class="" href="#">修改头像</a></li>
                       </ul>
                   </li>
 				<!-- 公共部分结束 -->

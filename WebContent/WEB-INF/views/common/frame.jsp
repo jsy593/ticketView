@@ -18,8 +18,6 @@
     <link href="res/bootstrap/css/style.css" rel="stylesheet">
     <link href="res/bootstrap/css/all.css" rel="stylesheet">
     <link href="res/bootstrap/css/style-responsive.css" rel="stylesheet" />
-    <script src="res/layer/layer.js"></script>
-	<script src="res/laydate/laydate.js"></script>
 </head>
 <body>
 
@@ -39,10 +37,13 @@
 
 <tiles:insertAttribute name="footer"/>
 
- <script src="res/bootstrap/js/jquery.js"></script>
+ 	<script src="res/bootstrap/js/jquery.js"></script>
     <script src="res/bootstrap/js/bootstrap.min.js"></script>
     <script src="res/bootstrap/js/jquery.scrollTo.min.js"></script>
     <script src="res/bootstrap/js/jquery.nicescroll.js" type="text/javascript"></script>
- <script src="res/bootstrap/js/common-scripts.js"></script>
+ 	<script src="res/bootstrap/js/common-scripts.js"></script>
+ 	<script src="res/views/default/js/jquery-1.8.3.min.js"></script>
+ 	<script src="res/layer/layer.js"></script>
+	<script src="res/laydate/laydate.js"></script>
 </body>
 </html>

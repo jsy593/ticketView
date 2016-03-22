@@ -11,7 +11,7 @@
                           <span>个人中心</span>
                       </a>
                       <span>></span>
-                      <a class="" href="toPersonalCenter">
+                      <a class="">
                           <span style="color:black">个人信息</span>
                       </a>
                </header>
