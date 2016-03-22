@@ -97,7 +97,7 @@ public class UserController extends BaseController {
 			data.put("pageIndex", "1");
 		}
 		if (CommonUtil.isEmpty(data.get("pageSize"))) {
-			data.put("pageSize", "15");
+			data.put("pageSize", "5");
 		}
 
 		Map<String, Object> sendPostMapRequest = null;

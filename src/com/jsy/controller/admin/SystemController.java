@@ -58,7 +58,7 @@ public class SystemController extends BaseController {
 			data.put("pageIndex", "1");
 		}
 		if(CommonUtil.isEmpty(data.get("pageSize"))){
-			data.put("pageSize", "15");
+			data.put("pageSize", "5");
 		}
 		Map<String, Object> sendPostMapRequest = util.sendPostMapRequest(servicePath + "/selectSystemList", data, UTF8);
 		Map<String, Object> result = JsonUtil.readJson2Map(sendPostMapRequest.get("respContent").toString());
@@ -128,7 +128,7 @@ public class SystemController extends BaseController {
 			data.put("pageIndex", "1");
 		}
 		if (CommonUtil.isEmpty(data.get("pageSize"))) {
-			data.put("pageSize", "15");
+			data.put("pageSize", "5");
 		}
 
 		Map<String, Object> sendPostMapRequest = null;

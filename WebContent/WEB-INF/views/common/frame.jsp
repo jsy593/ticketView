@@ -10,7 +10,9 @@
 
 <%-- <link rel="stylesheet" href="<c:url value="res/views/default/css/basic.css"/>">  --%>
 <%-- <link rel="stylesheet" href="<c:url value="res/views/default/css/index.css"/>">  --%>
-
+	<!--分页样式 -->
+	<link href="res/views/default/js/jqpagination/css/jqpagination.css" rel="stylesheet" />
+	
  <!-- Bootstrap core CSS -->
     <link href="res/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="res/bootstrap/css/bootstrap-reset.css" rel="stylesheet">
