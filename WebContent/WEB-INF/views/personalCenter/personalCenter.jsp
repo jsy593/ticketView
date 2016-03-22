@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"  pageEncoding="utf-8"%>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
+
   <div class="row">
        <div class="col-lg-12">
            <section class="panel">
@@ -19,7 +21,7 @@
                    				 <div class="form-group">
                                       <label  class="col-lg-2 control-label">头像：</label>
                                       <!-- 修改头像开始 -->
-			                           		 <img src="res/${userinfo.imageUrl }" class="js_imgUrl img-circle"  width="140" height="140" onclick="$('input[class=js_file]').click();">
+			                           		 <img src="${ctx }/${userinfo.imageUrl }" class="js_imgUrl img-circle"  width="140" height="140" onclick="$('input[class=js_file]').click();">
 			                           		 <input class="js_file" id="js_upload_file" style="display:none" type="file" name="imgFile" multiple>
 			                        <!-- 修改头像结束 -->
                                   </div>

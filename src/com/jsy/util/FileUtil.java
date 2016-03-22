@@ -93,7 +93,7 @@ public class FileUtil {
                  //获取item中的上传文件的输入流
                   InputStream in = item.getInputStream();
                   //创建一个文件输出流
-                  String tempPath =request.getServletContext().getRealPath("/") + folder + "/" + uuid;
+                  String tempPath =request.getServletContext().getRealPath("/") + "WEB-INF/"+folder + "/" + uuid;
                   File localFile = new File(tempPath);
                   if(!localFile.exists()){
                       localFile.mkdirs();

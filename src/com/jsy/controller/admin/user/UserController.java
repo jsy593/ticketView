@@ -7,16 +7,12 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jsy.controller.BaseController;
 import com.jsy.util.CommonUtil;
@@ -25,6 +21,7 @@ import com.jsy.util.FileUtil;
 import com.jsy.util.HttpUtil;
 import com.jsy.util.JsonUtil;
 import com.jsy.util.MD5Util;
+import com.jsy.util.StringUtil;
 
 /**
  * 用户
@@ -489,7 +486,8 @@ public class UserController extends BaseController {
 	 * @throws Exception
 	 */
 	@RequestMapping("updateUserInfo")
-	public String updateUserInfo(@RequestParam Map<String, String> data,HttpServletRequest request) throws Exception {
+	public String updateUserInfo(@RequestParam Map<String, String> data,HttpServletRequest request,Model model) throws Exception {
+		model.addAttribute("titleNo", 13);
 		HttpSession session = request.getSession();
 		@SuppressWarnings("unchecked")
 		Map<String, Object> userMap = (Map<String, Object>) session.getAttribute("userinfo");
@@ -509,7 +507,10 @@ public class UserController extends BaseController {
 			userMap.put("remark", resultMap.get("remark"));
 			userMap.put("email", resultMap.get("email"));
 			userMap.put("realName", resultMap.get("realName"));
-			userMap.put("imageUrl", resultMap.get("imageUrl"));
+			
+			if(!StringUtil.isNull(resultMap.get("imageUrl"))){//如果用户上传图片
+				userMap.put("imageUrl", resultMap.get("imageUrl"));
+			}
 			session.setAttribute("userinfo", userMap);
 		}else{
 			request.setAttribute("error", "修改失败！");

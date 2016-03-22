@@ -11,8 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Mosaddek">
-    <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-    <link rel="shortcut icon" href="res/bootstrap/img/favicon.html">
 
     <title>工单管理系统</title>
 
@@ -34,7 +32,7 @@
 				<!-- user login dropdown start -->
                   <li class="dropdown">
                       <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                          <img alt="" style="margin:-4px 8px 0 0;border-radius:100%;border:2px solid #FFF;max-width:40px" src="res/${userinfo.imageUrl }">
+                          <img alt="" style="margin:-4px 8px 0 0;border-radius:100%;border:2px solid #FFF;max-width:40px" src="${ctx}/${userinfo.imageUrl }">
                           <span class="username">${userinfo.realName }</span>
                           <b class="caret"></b>
                       </a>
