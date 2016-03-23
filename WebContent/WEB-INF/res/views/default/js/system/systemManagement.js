@@ -1,17 +1,17 @@
 $(function() {
 	// 冻结 、 启用
-	$(".stop").click(function() {
+	$(".delete").click(function() {
 		var data = {};
 		data.uuid = $(this).attr("data-uuid");
-		data.status = 2;
+		data.status = 4;
 		changeStatus(data);
 	})
-	$(".start").click(function() {
-		var data = {};
-		data.uuid = $(this).attr("data-uuid");
-		data.status = 1;
-		changeStatus(data);
-	})
+//	$(".start").click(function() {
+//		var data = {};
+//		data.uuid = $(this).attr("data-uuid");
+//		data.status = 1;
+//		changeStatus(data);
+//	})
 
 	function changeStatus(data) {
 		var url = "updateSystemStatus";

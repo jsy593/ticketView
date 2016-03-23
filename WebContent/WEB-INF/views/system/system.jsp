@@ -19,6 +19,7 @@
 		        					<option <c:if test="${status == 1}">selected</c:if> value="1">正常</option>
 		        					<option <c:if test="${status == 2}">selected</c:if> value="2">冻结</option>
 		        					<option <c:if test="${status == 3}">selected</c:if> value="3">审核未通过</option>
+		        					<option <c:if test="${status == 4}">selected</c:if> value="4">管理员已删除</option>
 				        		</select>
 	                 		 </div>
 				        	 <div class="col-lg-3">
@@ -45,12 +46,15 @@
 	                    <c:forEach var="system" items="${systemList.list}">
 	                   		 <tr class="odd gradeX">
 		                        <td>${system.systemName }</td>
+		                        <c:if test="${system.appId == null || system.appId == ''}"><td>无</td></c:if>
 		                        <td>${system.appId }</td>
+		                        <c:if test="${system.appKey == null || system.appKey == ''}"><td>无</td></c:if>
 		                        <td>${system.appKey }</td>
 		                         <c:if test="${system.status == 0}"><td>待审核</td></c:if>
 		                         <c:if test="${system.status == 1}"><td>正常</td></c:if>
 		                         <c:if test="${system.status == 2}"><td>冻结</td></c:if>
 		                         <c:if test="${system.status == 3}"><td>未通过</td></c:if>
+		                         <c:if test="${system.status == 4}"><td>管理员已删除</td></c:if>
 		                        <td>${system.createTime }</td>   
 		                        <td>
 		                        	<input type="submit" class="btn btn-primary"  onclick="linkHref('${system.uuid}')" value="查看详情"></input>
