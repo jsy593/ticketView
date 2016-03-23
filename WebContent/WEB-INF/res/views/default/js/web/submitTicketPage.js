@@ -1,7 +1,8 @@
 $(function() {
 	var systemIndex = $(".systemIndex").val();
 	if (systemIndex == null || systemIndex == '') {
-		alert('该系统暂无使用权限 或 密钥错误！')
+		layer.alert('该系统暂无使用权限 或 密钥错误！',{icon:5});
+		
 	}
 	// 获取大分类 getQuestionType
 	init(systemIndex);
@@ -74,9 +75,10 @@ $(function() {
 	
 	$.post(url, data, function(data){
 		if(data.state == '1'){
-			alert("提交成功!");
+			layer.alert("提交成功!",{icon:6});
+			
 		} else {
-			alert("提交失败!");
+			layer.alert("提交失败!",{icon:5});
 		}
 	})
 	})

@@ -15,10 +15,10 @@ function addQuickReply(){
 		dataType :"json",
 		success : function(state) {
 			if(state == 1){
-				alert("添加成功!");
+				layer.alert('添加成功！',{icon:6});
 				window.location.reload();
 			}else{
-				alert("添加失败!");
+				layer.alert('添加失败！',{icon:5});
 			}
 		}
 	});

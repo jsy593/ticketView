@@ -13,10 +13,11 @@ function changeStatus(state){
 			data : data,
 			success : function(state) {
 				if(state == 1){
-					alert("审核成功!");
+					layer.alert("审核成功!",{icon:6});
+					
 					window.location.href="systemDetails?uuid="+uuid;
 				}else{
-					alert("审核失败!");
+					layer.alert("审核失败!",{icon:5});
 				}
 			},
 	});

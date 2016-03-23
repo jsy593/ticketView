@@ -1,66 +1,99 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>系统详情</title>
-<link href="res/views/default/css/basic.css" rel="stylesheet" />
-<link href="res/views/default/css/index.css" rel="stylesheet" />
-</head>
-<body>
-	<div class="clear"></div>
-	<div class="wrap">
-		<div class="margincenter">
-	    	<div class="mainDetail">
-	    	<input type="hidden" value="${system.uuid}" class="js_uuid"/>
-	    	<input type="hidden" value="${system.systemName}" class="js_systemName"/>
-	            <div><span class="spandetail">系统名称：</span>${system.systemName }</div>
-	            <div><span class="spandetail">appId：</span>${system.appId }</div>
-	            <div><span class="spandetail">key：</span>${system.appKey }</div>
-	            
-	            
-	            <c:if test="${system.status == 0}">
-	            	<div><span class="spandetail">状态：</span>待审核</div>
-	            </c:if>
-	            <c:if test="${system.status == 1}">
-	            	<div><span class="spandetail">状态：</span>正常</div>
-	           	</c:if>
-	            <c:if test="${system.status == 2}">
-	            	<div><span class="spandetail">状态：</span>冻结</div>
-	           	</c:if>
-	            <c:if test="${system.status == 3}">
-	            	<div><span class="spandetail">状态：</span>审核未通过</div>
-	           	</c:if>
-	            <div><span class="spandetail">时间：</span>${system.createTime }</div>
-	            <div><span class="spandetail">备注：</span>${system.remark }</div>
-	            <c:if test="${system.status == 0}">
-	            <div class="btndiv">
-	                <input type="button" class="btnorder"  onclick="changeStatus(1)" value="通过" />
-	                <input type="button" class="btnorder" onclick="changeStatus(3)" value="不通过" />
-	            </div>
-	            </c:if>
-	           <%--  <c:if test="${system.status == 1}">
-	            <div class="btndiv">
-	                <input type="button" class="btnorder" onclick="changeStatus(2)" value="冻结" />
-	            </div>
-	            </c:if> --%>
-	          <%--   <c:if test="${system.status == 2}">
-	            <div class="btndiv">
-	                <input type="button" class="btnorder" onclick="changeStatus(1)" value="启用" />
-	            </div>
-	            </c:if>
-	            <c:if test="${system.status == 3}">
-	            <div class="btndiv">
-	                <input type="button" class="btnorder" onclick="changeStatus(1)" value="通过" />
-	            </div>
-	            </c:if> --%>
-	        </div>
-		</div>
-    </div>
 
-</body>
-</html>
+<div class="row">
+       <div class="col-lg-12">
+           <section class="panel">
+               <header class="panel-heading">
+                     <a class="" href="system">
+                          <span>系统管理</span>
+                      </a>
+                      <span>></span>
+                      <a class="">
+                          <span style="color:black">详细信息</span>
+                      </a>
+               </header>
+               
+               <div class="panel-body" style="margin-left: auto;margin-right: auto;">
+                   <form class="form-horizontal col-lg-6" role="form" action="updateUserInfo" enctype="multipart/form-data" method="post" onsubmit="return checkFileType();">
+                   				<input type="hidden" value="${system.uuid}" class="js_uuid"/>
+	    						<input type="hidden" value="${system.systemName}" class="js_systemName"/>
+                                  <div class="form-group">
+                                      <label  class="col-lg-2 control-label">系统名称：</label>
+                                      <div class="col-lg-6">
+                                       <label  class=" control-label">${system.systemName }</label>
+                                      </div>
+                                  </div>
+                                  
+                                   <div class="form-group">
+                                      <label  class="col-lg-2 control-label">appId：</label>
+                                      <div class="col-lg-6">
+                                        	<label  class="control-label js_label">${system.appId }</label>
+                                      </div>
+                                  </div>
+                                  
+                                  
+                                  <div class="form-group">
+                                      <label  class="col-lg-2 control-label">key：</label>
+                                      <div class="col-lg-6">
+                                        	<label  class="control-label js_label">${system.appKey }</label>
+                                      </div>
+                                  </div>
+               
+               						
+               						<div class="form-group">
+                                      <label  class="col-lg-2 control-label">状态：</label>
+                                      <div class="col-lg-6">
+                                        	<label  class="control-label js_label">
+												<c:if test="${system.status == 0}">
+													待审核
+												</c:if>
+												
+												<c:if test="${system.status == 1}">
+													正常
+												</c:if>
+												
+												<c:if test="${system.status == 2}">
+													冻结
+												</c:if>
+												
+												<c:if test="${system.status == 3}">
+													审核未通过
+												</c:if>
+											</label>
+                                      </div>
+                                  </div>
+                                  
+<!--                                    <div class="form-group"> -->
+<!--                                       <label  class="col-lg-2 control-label">备注：</label> -->
+<!--                                       <div class="col-lg-6"> -->
+<%--                                         	<label  class="control-label js_label">${system.remark }</label> --%>
+<!--                                       </div> -->
+<!--                                   </div> -->
+                                  
+                                   <div class="form-group">
+                                      <label  class="col-lg-2 control-label">时间：</label>
+                                      <div class="col-lg-6">
+                                        	<label  class="control-label js_label">${system.createTime }</label>
+                                      </div>
+                                  </div>
+                                  
+                                  
+                                   <c:if test="${system.status == 0}">
+										<div class="form-group">
+		                                     <div class="col-lg-6">
+								                <input type="button" class="btn btn-success"  onclick="changeStatus(1)" value="通过" />
+								                <input type="button" class="btn btn-danger" onclick="changeStatus(3)" value="不通过" />
+		                                     </div>
+	                                 	</div>							            
+							        </c:if>
+					      </form>
+               </div>
+           </section>
+
+       </div>
+   </div>
+               
 	<script type="text/javascript" src="res/views/default/js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="res/views/default/js/system/systemDetails.js"></script>
 	<script type="text/javascript" src="res/views/default/js/basic.js"></script>

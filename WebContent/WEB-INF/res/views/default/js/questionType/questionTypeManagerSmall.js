@@ -47,7 +47,7 @@ $(function() {
 	$('.addQuestionType').click(
 			function() {
 				if (parentId == '' || parentId == null) {
-					alert('请选择大分类！');
+					layer.alert('请选择大分类！',{icon:5});
 					return false;
 				}
 				// 获取 职员列表

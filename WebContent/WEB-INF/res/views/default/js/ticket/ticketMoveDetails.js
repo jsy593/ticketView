@@ -38,7 +38,7 @@ $(function() {
 			if (data.state == '1') {
 				window.location.href ='toTicketMoveList';
 			} else {
-				alert("审核失败!");
+				layer.alert("审核失败!",{icon:5});
 			}
 
 		}, 'json');

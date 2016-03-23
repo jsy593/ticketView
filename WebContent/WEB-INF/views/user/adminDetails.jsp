@@ -1,66 +1,119 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>系统管理员详情</title>
-<link href="res/views/default/css/basic.css" rel="stylesheet" />
-<link href="res/views/default/css/index.css" rel="stylesheet" />
-</head>
-<div class="clear"></div>
-<body>
-	<div class="wrap">
-		<div class="margincenter">
-	    	<div class="mainDetail">
-	    	<input type="hidden" class="js_uuid" value="${user.uuid}">
-	             <div class="height30"><span>姓名：</span>${user.realName}</div>
-	             <div class="height30"><span>账号：</span>${user.username}</div>
-	            <div class="height30"><span>邮箱：</span>${user.email}</div>
-	            <div class="height30"><span>电话：</span>${user.phone}</div>
-	            <div class="height30"><span>性别：</span>${user.sex}</div>
-	            <div class="height30">	            
-		            <c:if test=" ${user.status == 0}">
-		            	<div><span>状态：</span>待审核</div>
-		            </c:if>
-		            <c:if test="${user.status == 1}">
-		            	<div><span >状态：</span>正常</div>
-		            </c:if>
-		            <c:if test="${user.status == 2}">
-		            	<div><span>状态：</span>审核未通过</div>
-		            </c:if>
-		            <c:if test="${user.status == 3}">
-		            	<div><span>状态：</span>删除</div>
-		            </c:if>
-		            <c:if test="${user.status == 4}">
-		            	<div><span>状态：</span>冻结</div>
-		            </c:if>
-	            </div> 
-	            <div class="height30"><span>备注：</span>${user.remark}</div>
-	            <div class="height30"><span>时间：</span>${user.createTime}</div>
-	            <div class="btndiv">
-	            
-	            <c:if test="${user.status == 0}"><!-- 未审核 -->
-	                <input type="button" class="js_pass btnorder" onclick="changeStatus(1)" value="通过" />
-	                <input type="button" class="js-nopass btnorder "onclick="changeStatus(2)" value="不通过" />
-	             </c:if>
-	            <c:if test="${user.status == 1}"><!-- 正常 -->
-	                <input type="button" class="js_forbidden btnorder" onclick="changeStatus(4)" value="冻结" />
-	                <input type="button" class="js_forbidden btnorder" onclick="changeStatus(3)" value="删除" />
-	              </c:if>
-	            <c:if test="${user.status == 2}"><!-- 审核未通过 -->
-	                <input type="button" class="js_pass btnorder" onclick="changeStatus(1)" value="通过" />
-	                <input type="button" class="js_freeze btnorder" onclick="changeStatus(3)"value="删除" />
-	              </c:if>
-	            <c:if test="${user.status == 3}"><!-- 已删除 -->
-	                <input type="button" class="js_pass btnorder" onclick="changeStatus(1)" value="启用" />
-	              </c:if>
-	            <c:if test="${user.status == 4}"><!-- 冻结 -->
-	                <input type="button" class="js_pass btnorder" onclick="changeStatus(1)" value="启用" />
-	                <input type="button" class="js_forbidden btnorder" onclick="changeStatus(3)" value="删除" />
-	              </c:if>
-	            </div>
-	        </div>
+<div class="row">
+       <div class="col-lg-12">
+           <section class="panel">
+               <header class="panel-heading">
+                     <a class="" href="admin">
+                          <span>系统管理员管理</span>
+                      </a>
+                      <span>></span>
+                      <a class="">
+                          <span style="color:black">详细信息</span>
+                      </a>
+               </header>
+               
+                 <div class="panel-body" style="margin-left: auto;margin-right: auto;">
+                   <form class="form-horizontal col-lg-6" role="form" action="updateUserInfo" enctype="multipart/form-data" method="post" onsubmit="return checkFileType();">
+                   			<input type="hidden" class="js_uuid" value="${user.uuid}">
+                                  <div class="form-group">
+                                      <label  class="col-lg-2 control-label">姓名：</label>
+                                      <div class="col-lg-6">
+                                       <label  class=" control-label">${user.realName}</label>
+                                      </div>
+                                  </div>
+                                  
+                                   <div class="form-group">
+                                      <label  class="col-lg-2 control-label">账号：</label>
+                                      <div class="col-lg-6">
+                                        	<label  class="control-label js_label">${user.username}</label>
+                                      </div>
+                                  </div>
+                                  
+                                  <div class="form-group">
+                                      <label  class="col-lg-2 control-label">邮箱：</label>
+                                      <div class="col-lg-6">
+                                        	<label  class="control-label js_label">${user.email}</label>
+                                      </div>
+                                  </div>
+                                  
+                                  <div class="form-group">
+                                      <label  class="col-lg-2 control-label">电话：</label>
+                                      <div class="col-lg-6">
+                                        	<label  class="control-label js_label">${user.phone}</label>
+                                      </div>
+                                  </div>
+                                  
+                                  <div class="form-group">
+                                      <label  class="col-lg-2 control-label">性别：</label>
+                                      <div class="col-lg-6">
+                                        	<label  class="control-label js_label">${user.sex}</label>
+                                      </div>
+                                  </div>
+                                  
+                                  <div class="form-group">
+                                      <label  class="col-lg-2 control-label">性别：</label>
+                                      <div class="col-lg-6">
+                                        	<label  class="control-label js_label">${user.sex}</label>
+                                      </div>
+                                  </div>
+               
+               					<div class="form-group">
+                                      <label  class="col-lg-2 control-label">状态：</label>
+                                      <div class="col-lg-6">
+                                        	<label  class="control-label js_label">
+												<c:if test="${user.status == 0}">
+													待审核
+												</c:if>
+												
+												<c:if test="${user.status == 1}">
+													正常
+												</c:if>
+												
+												<c:if test="${user.status == 2}">
+													审核未通过
+												</c:if>
+												
+												<c:if test="${user.status == 3}">
+													删除
+												</c:if>
+												
+												<c:if test="${user.status == 4}">
+													冻结
+												</c:if>
+											</label>
+                                      </div>
+                                  </div>
+                                  
+                                  <div class="form-group">
+                                      <label  class="col-lg-2 control-label">时间：</label>
+                                      <div class="col-lg-6">
+                                        	<label  class="control-label js_label">${user.createTime}</label>
+                                      </div>
+                                  </div>
+	           					 <div class="form-group">
+		                            <div class="col-lg-6">
+							            <c:if test="${user.status == 0}"><!-- 未审核 -->
+							                <input type="button" class="js_pass btn btn-success" onclick="changeStatus(1)" value="通过" />
+							                <input type="button" class="js-nopass btn btn-danger "onclick="changeStatus(2)" value="不通过" />
+							             </c:if>
+							            <c:if test="${user.status == 1}"><!-- 正常 -->
+							                <input type="button" class="js_forbidden btn btn-warning" onclick="changeStatus(4)" value="冻结" />
+							                <input type="button" class="js_forbidden btn btn-danger" onclick="changeStatus(3)" value="删除" />
+							              </c:if>
+							            <c:if test="${user.status == 2}"><!-- 审核未通过 -->
+							                <input type="button" class="js_pass btn btn-success" onclick="changeStatus(1)" value="通过" />
+							                <input type="button" class="js_freeze btn btn-danger" onclick="changeStatus(3)"value="删除" />
+							              </c:if>
+							            <c:if test="${user.status == 3}"><!-- 已删除 -->
+							                <input type="button" class="js_pass btn btn-success" onclick="changeStatus(1)" value="启用" />
+							              </c:if>
+							            <c:if test="${user.status == 4}"><!-- 冻结 -->
+							                <input type="button" class="js_pass btn btn-success" onclick="changeStatus(1)" value="启用" />
+							                <input type="button" class="js_forbidden btn btn-danger" onclick="changeStatus(3)" value="删除" />
+							              </c:if>
+							            </div>
+							        </div>
 	        <!--理由弹框页面开始-->
 	        	<div class="reasondiv">
 	            	<div>

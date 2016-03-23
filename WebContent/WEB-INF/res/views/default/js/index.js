@@ -12,20 +12,20 @@ $(function() {
 					location.href = "toPersonalCenter"
 				}
 				if (data == "4") {
-					alert("用户不存在！");
+					layer.alert("用户不存在！",{icon:5});
 				}
 				if (data == "5") {
-					alert("密码错误！");
+					layer.alert("密码错误！",{icon:5});
 				}
 				if (data == "6") {
-					alert("权限不足！");
+					layer.alert("权限不足！",{icon:5});
 				}
 				if (data == "7") {
-					alert("账号异常！");
+					layer.alert("账号异常！",{icon:5});
 				}
 			});
 		} else {
-			alert("账号或密码不能为空!!");
+			layer.alert("账号或密码不能为空！",{icon:5});
 		}
 	});
 })

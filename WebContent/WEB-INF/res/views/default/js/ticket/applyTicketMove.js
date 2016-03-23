@@ -109,7 +109,8 @@ function addReply(systemIndex) {
 			if (state == 1) {
 				window.location.reload();
 			} else {
-				alert("回复失败!");
+				layer.alert("回复失败!",{icon:5});
+				
 			}
 		},
 	});
@@ -121,9 +122,9 @@ $(".js_closeTicket").click(function() {
 	var url = "closeTicket";
 	$.post(url, data, function(data) {
 		if (data.state == '1') {
-			alert('关闭成功!')
+			layer.alert("关闭成功!",{icon:6});
 		} else {
-			alert("关闭失败!")
+			layer.alert("关闭失败!",{icon:6});
 		}
 		window.location.reload();
 	});

@@ -138,9 +138,9 @@ var result = 0;
 						if (state == 8) {
 							$(".js_errorUserName").text("用户名已存在!");
 						} else if(state == 2){
-							alert("提交失败!");
+							layer.alert("提交失败!",{icon:5});
 						}else if(state == 1){
-							alert("提交成功，请及时查看邮箱是否审核成功!");
+							layer.alert("提交成功，请及时查看邮箱是否审核成功!",{icon:6});
 							window.location.reload(true);
 						}
 						
@@ -148,7 +148,7 @@ var result = 0;
 
 				});
 			}else{
-				alert("两次输入的密码不一致!");	
+				layer.alert("两次输入的密码不一致!",{icon:5});
 				$("#js-user-newPwd").val("");//清空输入框
 				$("#js-user-confirmPwd").val("");//清空输入框
 			}

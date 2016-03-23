@@ -10,10 +10,10 @@ function changeStatus(state) {
 		data : data,
 		success : function(state) {
 			if (state == 1) {
-				alert("修改成功!");
+				layer.alert("修改成功!",{icon:6});
 				window.location.href = "staffDetails?uuid=" + uuid;
 			} else {
-				alert("修改失败!");
+				layer.alert("修改失败!",{icon:5});
 			}
 		}
 	});

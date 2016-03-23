@@ -47,7 +47,7 @@ $(function() {
 	$('.addQuestionType').click(
 			function() {
 				if (systemIndex == '-1' || systemIndex == null) {
-					alert('请选择系统！');
+					layer.alert('请选择系统！',{icon:5});
 					return false;
 				}
 				// 获取 部门列表
