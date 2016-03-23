@@ -5,7 +5,7 @@
            <section class="panel">
                <header class="panel-heading">
                      <a class="">
-                          <span style="color:black">系统管理员</span>
+                          <span style="color:black">系统管理</span>
                       </a>
                </header>
                

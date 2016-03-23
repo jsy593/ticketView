@@ -12,11 +12,11 @@ function changeStatus(state){
 			data : data,
 			success : function(state) {
 				if(state == 1){
-					layer.alert("审核成功!",{icon:6});
-					window.location.href="adminDetails?uuid="+uuid;
+					layer.alert("审核成功!",{icon:6,time:2000});
 				}else{
-					layer.alert("审核失败!",{icon:6});
+					layer.alert("审核失败!",{icon:5,time:2000});
 				}
+				window.location.href="adminDetails?uuid="+uuid;
 			}
 		});
 	}); 

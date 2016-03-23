@@ -37,6 +37,7 @@
         <script src="res/bootstrap/assets/js/supersized.3.2.7.min.js"></script>
         <script src="res/bootstrap/assets/js/supersized-init.js"></script>
         <script src="res/bootstrap/assets/js/scripts.js"></script>
+	 	<script src="res/layer/layer.js"></script>
 
     </body>
 

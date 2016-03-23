@@ -462,7 +462,10 @@ public class UserController extends BaseController {
 		map.put("status", userInfo.get("status").toString());
 		Map<String, Object> sendPostMapRequest = util.sendPostMapRequest(servicePath + "/updateUser", map, UTF8);
 		Map<String, Object> result = JsonUtil.readJson2Map(sendPostMapRequest.get("respContent").toString());
-
+		if(result.get("state").toString().equals("1")){
+			userInfo.put("password", newPassword);
+			session.setAttribute("userinfo", userInfo);
+		}
 		return result.get("state").toString();
 			
 	}

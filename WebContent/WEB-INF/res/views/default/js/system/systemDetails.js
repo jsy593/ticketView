@@ -1,5 +1,5 @@
 function changeStatus(state){
-	if(confirm("确认吗?")){
+	layer.confirm("确认吗?", {icon: 3, title:'提示'}, function(index){
 		var data = {};
 		var uuid = $(".js_uuid").val();
 		var systemName = $(".js_systemName").val();
@@ -20,6 +20,6 @@ function changeStatus(state){
 					layer.alert("审核失败!",{icon:5});
 				}
 			},
+		});
 	});
-	}
 }

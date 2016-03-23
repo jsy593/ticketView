@@ -1,6 +1,7 @@
 	var result = 0; 
 	$(function(){
 		$(".js-updatePwd").click(function(){
+			result = 0;
 			$.post("checkPwd", {"oldPassword":$("#js-user-oldPwd").val()},
 				function(data){
 						if(data == 1){

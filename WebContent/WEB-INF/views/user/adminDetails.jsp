@@ -51,12 +51,6 @@
                                       </div>
                                   </div>
                                   
-                                  <div class="form-group">
-                                      <label  class="col-lg-2 control-label">性别：</label>
-                                      <div class="col-lg-6">
-                                        	<label  class="control-label js_label">${user.sex}</label>
-                                      </div>
-                                  </div>
                
                					<div class="form-group">
                                       <label  class="col-lg-2 control-label">状态：</label>
@@ -115,17 +109,17 @@
 							            </div>
 							        </div>
 	        <!--理由弹框页面开始-->
-	        	<div class="reasondiv">
-	            	<div>
-	                	 <span class="spandetail left">理由：</span><textarea class="reason"></textarea>
-	                </div>
-	                <div class="mar100">
-	                	<input type="button" class="btnorder" value="确定" />
-	                	<input type="button" class="btnorder js-cancel" value="取消" />
-	                </div>
+<!-- 	        	<div class="reasondiv"> -->
+<!-- 	            	<div> -->
+<!-- 	                	 <span class="spandetail left">理由：</span><textarea class="reason"></textarea> -->
+<!-- 	                </div> -->
+<!-- 	                <div class="mar100"> -->
+<!-- 	                	<input type="button" class="btnorder" value="确定" /> -->
+<!-- 	                	<input type="button" class="btnorder js-cancel" value="取消" /> -->
+<!-- 	                </div> -->
 	              
 	                
-	            </div>
+<!-- 	            </div> -->
 	        
 	         <!--理由弹框页面结束-->
 		</div>

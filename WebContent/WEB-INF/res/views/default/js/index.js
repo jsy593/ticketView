@@ -12,7 +12,8 @@ $(function() {
 					location.href = "toPersonalCenter"
 				}
 				if (data == "4") {
-					layer.alert("用户不存在！",{icon:5});
+					alert("用户不错字");
+					layer.alert('用户不存在!',{icon:5});
 				}
 				if (data == "5") {
 					layer.alert("密码错误！",{icon:5});

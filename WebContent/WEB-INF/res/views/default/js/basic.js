@@ -7,15 +7,15 @@ $(document).ready(function(){
 															 },function(){
 																 $(this).css("background-color","#fff");
 															 });
-															 
-								//理由弹框							 
-								$(".js-nopass").click(function(){
-									$(".reasondiv").show();
-								});
-								$(".js-cancel").click(function(){
-									$(".reasondiv").hide();
-								});
-								
+//															 
+//								//理由弹框							 
+//								$(".js-nopass").click(function(){
+//									$(".reasondiv").show();
+//								});
+//								$(".js-cancel").click(function(){
+//									$(".reasondiv").hide();
+//								});
+//								
 								//问题分类弹出层
 								$(".js-addproblem").click(function(){
 									$(".js-problem").show();
