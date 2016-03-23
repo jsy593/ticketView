@@ -28,7 +28,12 @@
                                    <div class="form-group">
                                       <label  class="col-lg-2 control-label">appId：</label>
                                       <div class="col-lg-6">
-                                        	<label  class="control-label js_label">${system.appId }</label>
+	                               		 <c:if test="${system.appId == null || system.appId == ''}">
+				                      		  <label  class="control-label js_label">无</label>
+			                        	 </c:if>
+				                         <c:if test="${system.appId !=null && system.appId != ''}">
+				                       		 <label  class="control-label js_label">${system.appId }</label>
+				                          </c:if>
                                       </div>
                                   </div>
                                   
@@ -36,7 +41,12 @@
                                   <div class="form-group">
                                       <label  class="col-lg-2 control-label">key：</label>
                                       <div class="col-lg-6">
-                                        	<label  class="control-label js_label">${system.appKey }</label>
+					                        <c:if test="${system.appKey == null || system.appKey == ''}">
+					                      		  <label  class="control-label js_label">无</label>
+					                        </c:if>
+					                         <c:if test="${system.appKey !=null && system.appKey != ''}">
+					                       		 <label  class="control-label js_label">${system.appKey }</label>
+					                          </c:if>
                                       </div>
                                   </div>
                

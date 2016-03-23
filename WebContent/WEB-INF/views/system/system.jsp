@@ -47,9 +47,13 @@
 	                   		 <tr class="odd gradeX">
 		                        <td>${system.systemName }</td>
 		                        <c:if test="${system.appId == null || system.appId == ''}"><td>无</td></c:if>
-		                        <td>${system.appId }</td>
+		                          <c:if test="${system.appId !=null && system.appId != ''}">
+		                       		 <td>${system.appId }</td>
+		                          </c:if>
 		                        <c:if test="${system.appKey == null || system.appKey == ''}"><td>无</td></c:if>
-		                        <td>${system.appKey }</td>
+		                         <c:if test="${system.appKey !=null && system.appKey != ''}">
+		                       		 <td>${system.appKey }</td>
+		                          </c:if>
 		                         <c:if test="${system.status == 0}"><td>待审核</td></c:if>
 		                         <c:if test="${system.status == 1}"><td>正常</td></c:if>
 		                         <c:if test="${system.status == 2}"><td>冻结</td></c:if>
@@ -90,7 +94,7 @@
 		current_page : '${pageIndex}',
 		max_page : '${systemList.maxPage}',
 	    paged: function(page) {
-	    	var status = $('.selestatiu').val();
+	    	var status = $('.js_status').val();
 	    	var content = $('.js_search_text').val();
 			window.location.href = "system?status=" + status + "&content=" + content + "&pageIndex="+ page + "&pageSize=5";
 		    }

@@ -111,7 +111,7 @@
 	    paged: function(page) {
 	    	var status = $(".js_status").val();
 	    	var content = $(".js_search_text").val();
-			window.location.href = "toDepartmentManager?systemIndex=${systemIndex}&pageIndex=" + page + "&pageSize=15";
+			window.location.href = "toDepartmentManager?systemIndex=${systemIndex}&pageIndex=" + page + "&pageSize=5";
 		    }
 	});
 </script>
