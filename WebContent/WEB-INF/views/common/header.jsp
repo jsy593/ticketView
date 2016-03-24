@@ -86,7 +86,7 @@
                    <li <c:if test='${titleNo == 3}'>class="active"</c:if>>
                       <a class="" href="toDepartmentManager">
                           <i class="icon-book"></i>
-                          <span>部门维护</span>
+                          <span>部门管理</span>
                       </a>
                   </li>
 	            

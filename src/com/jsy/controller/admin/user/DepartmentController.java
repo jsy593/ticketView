@@ -32,24 +32,35 @@ public class DepartmentController extends BaseController {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/toDepartmentManager")
-	public String toDepartmentManager(Model model, @RequestParam Map<String, String> data) {
+	public String toDepartmentManager(Model model, @RequestParam Map<String, String> data,HttpSession session) {
 		model.addAttribute("titleNo", 3);
-		if (CommonUtil.isEmpty(data.get("systemIndex"))) {
-			data.put("systemIndex", "-1");
-		}
 		if (CommonUtil.isEmpty(data.get("pageIndex"))) {
 			data.put("pageIndex", "1");
 		}
 		if (CommonUtil.isEmpty(data.get("pageSize"))) {
-			data.put("pageSize", "15");
+			data.put("pageSize", "5");
 		}
+		Map<String, Object> userMap = (Map<String, Object>) session.getAttribute("userinfo");
+		System.out.println(userMap);
+		data.put("userId", userMap.get("uuid").toString());
 		Map<String, Object> sendPostMapRequest = util.sendPostMapRequest(servicePath + "/selectDept", data, UTF8);
-		Map<String, Object> result = JsonUtil.readJson2Map(sendPostMapRequest.get("respContent").toString());
-		string2Data(result);
-		model.addAttribute("data", result);
-		model.addAttribute("systemIndex", data.get("systemIndex"));
-		model.addAttribute("pageIndex", data.get("pageIndex"));
+		if(sendPostMapRequest != null && sendPostMapRequest.size() > 0){
+			Map<String, Object> result = JsonUtil.readJson2Map(sendPostMapRequest.get("respContent").toString());
+			string2Data(result);
+			model.addAttribute("data", result);
+			
+			if(result.get("systemIndex") != null){
+				model.addAttribute("systemIndex", result.get("systemIndex"));
+			}else{
+				model.addAttribute("systemIndex", data.get("systemIndex"));
+			}
+			
+			model.addAttribute("pageIndex", data.get("pageIndex"));
+			model.addAttribute("content", data.get("content"));
+		}
+		
 		return ".department.departmentManager";
 	}
 
