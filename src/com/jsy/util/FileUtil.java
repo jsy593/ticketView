@@ -33,7 +33,7 @@ public class FileUtil {
         try {  
             // 获得文件对象  
             File f = new File(path);  
-            if (!f.exists()) {  
+            if (!f.exists()) {   
                 // 如果路径不存在,则创建  
                 f.mkdirs();  
             }  

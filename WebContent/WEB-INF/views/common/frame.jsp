@@ -18,7 +18,7 @@
     <link href="res/bootstrap/css/bootstrap-reset.css" rel="stylesheet">
     <link href="res/bootstrap/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="res/bootstrap/css/style.css" rel="stylesheet">
-    <link href="res/bootstrap/css/all.css" rel="stylesheet">
+<!--     <link href="res/bootstrap/css/all.css" rel="stylesheet"> -->
     <link href="res/bootstrap/css/style-responsive.css" rel="stylesheet" />
 </head>
 <body>
@@ -47,5 +47,24 @@
  	<script src="res/views/default/js/jquery-1.8.3.min.js"></script>
  	<script src="res/layer/layer.js"></script>
 	<script src="res/laydate/laydate.js"></script>
+	<!--  -->
+    <script src="res/bootstrap/js/jquery-ui-1.9.2.custom.min.js"></script>
+
+    <!--custom switch-->
+    <script src="res/bootstrap/js/bootstrap-switch.js"></script>
+    <!--custom tagsinput-->
+    <script src="res/bootstrap/js/jquery.tagsinput.js"></script>
+    <!--custom checkbox & radio-->
+    <script type="text/javascript" src="res/bootstrap/js/ga.js"></script>
+ 	<script type="text/javascript" src="res/bootstrap/assets/bootstrap-daterangepicker/date.js"></script>
+    <script type="text/javascript" src="res/bootstrap/assets/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="res/bootstrap/assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+    <script type="text/javascript" src="res/bootstrap/assets/ckeditor/ckeditor.js"></script>
+
+
+
+  <!--script for this page-->
+  <script src="res/bootstrap/js/form-component.js"></script>
+	
 </body>
 </html>

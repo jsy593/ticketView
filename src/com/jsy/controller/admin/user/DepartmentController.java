@@ -35,6 +35,8 @@ public class DepartmentController extends BaseController {
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/toDepartmentManager")
 	public String toDepartmentManager(Model model, @RequestParam Map<String, String> data,HttpSession session) {
+		data.remove("fullPath");
+		data.remove("base");
 		model.addAttribute("titleNo", 3);
 		if (CommonUtil.isEmpty(data.get("pageIndex"))) {
 			data.put("pageIndex", "1");
@@ -191,6 +193,6 @@ public class DepartmentController extends BaseController {
 		Map<String, Object> sendPostMapRequest = util.sendPostMapRequest(servicePath + "/addDept", dataMap, UTF8);
 		Map<String, Object> result = JsonUtil.readJson2Map(sendPostMapRequest.get("respContent").toString());
 
-		return "forward:toDepartmentManager?systemId=" + dataMap.get("systemId");
+		return "redirect:toDepartmentManager?systemIndex=" + dataMap.get("systemIndex");
 	}
 }

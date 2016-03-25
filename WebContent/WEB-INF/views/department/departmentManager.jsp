@@ -33,7 +33,7 @@
 			         <form class="form-horizontal" style="float: right">
 	       				<div class="form-group  col-lg-10">
 		                    <div class="col-lg-8">
-		                    		<a href="#myModal"  id="js_a" data-toggle="modal" class="btn btn-danger">新增部门</a>
+		                    		<a href="#myModal"  id="js_a" data-toggle="modal" class="btn btn-primary">新增部门</a>
 		                    </div>
 		          	 	</div>
 		          	 </form>
@@ -46,6 +46,7 @@
                               <th class="hidden-phone">状态</th>
                               <th class="hidden-phone">时间</th>
                               <th class="hidden-phone">操作</th>
+                              <th class="hidden-phone"></th>
                           </tr>
                           </thead>
                           <tbody>
@@ -53,18 +54,19 @@
 		                     <tr>
 		                        <td>${list.name }</td>
 		                        <td>${list.adminUser }</td>
+		                        <td>
+		                        	<c:if test="${list.status == '1' }"><font color="green" class="js_th${list.uuid}">正常</font></c:if>
+		                        	<c:if test="${list.status == '0' }"><font color="red" class="js_th${list.uuid}">停用</font></c:if>
+		                        </td>
 		                        <td>${list.createTime }</td>
 		                        <td>
-		                        	<c:if test="${list.status == '1' }"><font color="green">启用</font></c:if>
-		                        	<c:if test="${list.status == '0' }"><font color="red">停用</font></c:if>
+                                    <input type="checkbox" onChange='changeStatus("${list.uuid }",${list.status })' 
+                                    class="btn js_status${list.uuid }" style="display:none;text-align:center" <c:if test="${list.status == 1}">checked</c:if> data-toggle="switch" />
 		                        </td>
-		                        <td>
-		                        	<a  class="btn btn-primary"  href="getDepartmentDetail?uuid=${list.uuid }">查看详情</a>
-		                        	<a  href="#" class="btn btn-primary addQuestionType"  data-uuid="${list.uuid }">添加分类</a>
-		                        	<c:if test="${list.status == '1' }"><font color="red"><a href="#" class="stop" data-uuid="${list.uuid }">关闭部门</a></font></c:if>
-		                        	<c:if test="${list.status == '0' }"><font color="green"><a href="#" class="start" data-uuid="${list.uuid }">开启部门</a></font></c:if>
-		                        	
-		                        </td>
+                                 <td>
+	                        		<button class="btn btn-danger" class="delete" onclick="deleteDept(${list.uuid })"><i class="icon-trash "></i></button>
+	                        		<button class="btn btn-primary" class="update" onclick="deleteDept(${list.uuid })"><i class="icon-trash "></i></button>
+                                  </td>
 		                   </tr>
 	                   </c:forEach>
 	         	</tbody>
@@ -88,7 +90,7 @@
 	 </div>
 	    		
 	    		
-	    		<!-- 弹出层开始 -->
+	    	<!-- 弹出层开始 -->
 	    	<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
                   <div class="modal-dialog">
                       <div class="modal-content">
@@ -118,7 +120,7 @@
                                   
                                   <div class="form-group">
                                       <label for="exampleInputEmail1">密码：</label>
-                                      <input type="password" name="js-password" class="form-control js-password" id="exampleInputEmail3" placeholder="请输入密码">
+                                      <input type="password" name="password" class="form-control js-password" id="exampleInputEmail3" placeholder="请输入密码">
                                   </div>
                                   <div class="form-group" style="text-align:center">
                                  	<button  type="submit" class="btn btn-primary addThis" >提交</button>
@@ -129,7 +131,7 @@
                   </div>
               </div>
 	    			
-	    		<!-- 弹出层结束 -->
+	    	<!-- 弹出层结束 -->
 	    		
 	    		
 	    		

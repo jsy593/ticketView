@@ -53,7 +53,7 @@ public class SystemController extends BaseController {
 	 */
 	@RequestMapping(value = "/toSystemManager")
 	public String toSystemManager(Model model, @RequestParam Map<String, String> data) {
-		model.addAttribute("titleNo", 0);
+		model.addAttribute("titleNo", 2);
 		if(CommonUtil.isEmpty(data.get("pageIndex"))){
 			data.put("pageIndex", "1");
 		}
