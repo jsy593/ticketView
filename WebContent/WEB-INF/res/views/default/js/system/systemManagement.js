@@ -4,15 +4,10 @@ $(function() {
 		var data = {};
 		data.uuid = $(this).attr("data-uuid");
 		data.status = 4;
-		alert("data:"+JSON.stringify(data));
-		changeStatus(data);
+		layer.confirm("确定要删除吗?",{icon:3,title:"提示"},function(){
+			changeStatus(data);
+		});
 	})
-//	$(".start").click(function() {
-//		var data = {};
-//		data.uuid = $(this).attr("data-uuid");
-//		data.status = 1;
-//		changeStatus(data);
-//	})
 
 	function changeStatus(data) {
 		var url = "updateSystemStatus";
@@ -23,14 +18,15 @@ $(function() {
 				layer.alert("删除失败",{icon:5,time:2000})
 			}
 			window.location.reload();
-		})
-	}
-	$(".addSystem").click(function(){
-		$.sobox.pop({
-			popTarget:'div.so-popbox',
-			wrapTarget:false,
-			maskClick : false,
-			title:"添加系统",
 		});
-	});
+	}
+	
+//	$(".addSystem").click(function(){
+//		$.sobox.pop({
+//			popTarget:'div.so-popbox',
+//			wrapTarget:false,
+//			maskClick : false,
+//			title:"添加系统",
+//		});
+//	});
 })
