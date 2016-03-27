@@ -44,12 +44,66 @@ function changeStatus(uuid,status){
 function deleteDept(uuid){
 	var data = {};
 	data.uuid = uuid;
-	$.post("updateDept",data,function(data){
-		if(data.state == 1){
-			layer.alert('删除成功!', {icon: 6, time:2000});
-		}else{
-			layer.alert('删除失败!', {icon: 5, time:2000});
-		}
-		href.reload();
+	data.status = -1;
+	layer.confirm("确定要删除吗?",{icon: 3, title:'提示'},function(){
+		$.post("updateDept",data,function(data){
+			if(data.state == 1){
+				layer.alert('删除成功!', {icon: 6, time:2000});
+			}else{
+				layer.alert('删除失败!', {icon: 5, time:2000});
+			}
+			location.reload();
+		});
 	});
 }
+
+function updateDeptPage(uuid,name){
+	$('#spanId'+uuid).click(); 
+	$(".js-updateName").val(name);
+	var data = {};
+	data.departmentId = uuid;
+	var url = "getUser";
+	$.post(url, data, function(data) {
+		if (data.state == "1") {
+			$(".js_deptUser").html("");
+			var html = "";
+			var list = data.list;
+			for (var i = 0; i < list.length; i++) {
+				html += "<option value=" + list[i].uuid + ">"
+						+ list[i].realName + "</option>";
+			}
+			$(".js_deptUser").append(html);
+			var content = '<input type="hidden" class="js_departmentId" value="'+uuid+'" name="departmentId"/>';
+			$(".js_deptUser").before(content);
+		}
+	});
+	
+	// 查询当前部门管理员
+	var userData = {};
+	userData.departmentId = uuid;
+	$.post("selectDeptAdmin", userData, function(data) {
+		if (data.state == "1") {
+			$(".js_deptUser").val([ data.data.uuid ]);
+		}
+	}, "json");
+	
+	
+	
+}
+
+// 变更部门管理员
+function updateDeptUser(){
+	var data = {};
+	data.uuid = $(".js_deptUser").val();
+	data.departmentId = $(".js_departmentId").val();
+	var url = "updateDeptAdmin";
+	$.post(url, data, function(data) {
+		if (data.state == "1") {
+			layer.alert("修改成功",{icon:6,time:2000});
+		}else{
+			layer.alert("修改失败",{icon:5,time:2000});
+		}
+		location.reload();
+	}, "json");
+}
+

@@ -4,6 +4,7 @@ $(function() {
 		var data = {};
 		data.uuid = $(this).attr("data-uuid");
 		data.status = 4;
+		alert("data:"+JSON.stringify(data));
 		changeStatus(data);
 	})
 //	$(".start").click(function() {
@@ -17,8 +18,11 @@ $(function() {
 		var url = "updateSystemStatus";
 		$.post(url, data, function(data) {
 			if (data.state == "1") {
-				window.location.reload();
+				layer.alert("删除成功",{icon:6,time:2000});
+			}else{
+				layer.alert("删除失败",{icon:5,time:2000})
 			}
+			window.location.reload();
 		})
 	}
 	$(".addSystem").click(function(){

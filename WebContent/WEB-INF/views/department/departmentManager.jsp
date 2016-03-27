@@ -33,7 +33,7 @@
 			         <form class="form-horizontal" style="float: right">
 	       				<div class="form-group  col-lg-10">
 		                    <div class="col-lg-8">
-		                    		<a href="#myModal"  id="js_a" data-toggle="modal" class="btn btn-primary">新增部门</a>
+		                    		<a href="#myModal"  id="js_a" data-toggle="modal" class="btn btn-primary"><span id="spanId">新增部门</span></a>
 		                    </div>
 		          	 	</div>
 		          	 </form>
@@ -64,11 +64,13 @@
                                     class="btn js_status${list.uuid }" style="display:none;text-align:center" <c:if test="${list.status == 1}">checked</c:if> data-toggle="switch" />
 		                        </td>
                                  <td>
-	                        		<button class="btn btn-danger" class="delete" onclick="deleteDept(${list.uuid })"><i class="icon-trash "></i></button>
-	                        		<button class="btn btn-primary" class="update" onclick="deleteDept(${list.uuid })"><i class="icon-trash "></i></button>
-                                  </td>
-		                   </tr>
-	                   </c:forEach>
+	                        		<button class="btn btn-primary" class="update" onclick="updateDeptPage('${list.uuid }','${list.name }')"><i class="icon-pencil "></i></button>
+	                        		<a href="#myModal1" style="display:none" data-toggle="modal" class="btn btn-primary"><span id="spanId${list.uuid }">修改</span></a>
+	                        		<button class="btn btn-danger" class="delete" onclick="deleteDept('${list.uuid }')"><i class="icon-trash "></i></button>
+	                        		
+                                 </td>
+		                  </tr>
+	                  </c:forEach>
 	         	</tbody>
       		</table>
       		 <div class="form-group">
@@ -105,7 +107,7 @@
                                   <input type="hidden" class="systemIndex" value="${systemIndex }" name="systemIndex"/>
                                   <div class="form-group">
                                       <label for="exampleInputEmail1">部门名称：</label>
-                                      <input type="text" name="deptName" class="form-control js-deptName" id="exampleInputEmail3" placeholder="请输入部门名称">
+                                      <input type="text" name="deptName" class="form-control js-updateDeptName" id="exampleInputEmail3" placeholder="请输入部门名称">
                                   </div>
                                   
                                    <div class="form-group">
@@ -134,6 +136,41 @@
 	    	<!-- 弹出层结束 -->
 	    		
 	    		
+	    	<!-- 弹出层2开始 -->
+	    	<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal1" class="modal fade">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                              <h4 class="modal-title">修改部门信息</h4>
+                          </div>
+                          <div class="modal-body">
+
+                              <form role="form" action="updateDept" method="post">
+                                   <div class="form-group">
+                                      <label for="exampleInputEmail1">部门名称：</label>
+                                      <input type="text" name="deptName" disabled class="form-control js-updateName" id="exampleInputEmail3" placeholder="请输入部门名称">
+                                  </div>
+                                  	
+                                  	<div class="form-group">
+                                      <label for="exampleInputEmail1" style="float:left">管理员：</label>
+                                       <div class="col-lg-3">
+			        	                 <select class="js_deptUser form-control col-lg-1" name="systemIndex" >
+					        			</select>
+	                 		 		</div>
+                                  </div>
+                                  <br/><br/><br/>
+                                   <div class="form-group " style="float:right">
+                                  	 <label for="exampleInputEmail1"></label>
+                                 	<input  type="button" class="btn btn-primary js_updateDeptUser" value="提交" onclick="updateDeptUser()"></input>
+                                 </div>
+                                 <br/><br/>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            <!-- 弹出层2结束 -->
 	    		
     <script type="text/javascript" src="res/views/default/js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="res/views/default/js/date.js"></script>

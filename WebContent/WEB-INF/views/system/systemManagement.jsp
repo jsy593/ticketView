@@ -47,7 +47,7 @@
 	                        		</c:if>
 		                        	
 		                        	<c:if test="${system.status != '0'}">
-		                        		<input type="button" class="btn btn-primary delete"  data-uuid="${list.uuid }"  value="删除"></input>
+		                        		<input type="button" class="btn btn-primary delete"  data-uuid="${system.uuid }"  value="删除"></input>
 	                        		</c:if>
 		                        </td>
 	                   	 </tr>
