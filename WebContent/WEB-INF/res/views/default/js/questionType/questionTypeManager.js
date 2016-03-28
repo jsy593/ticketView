@@ -57,3 +57,19 @@
 		});
 	}
 	
+	//删除分类
+	function deleteQuestionType(uuid){
+		var data = {};
+		data.uuid = uuid;
+		layer.confirm("确定要删除吗?",{icon: 3, title:'提示'},function(){
+			$.post("deleteQuestionType",data,function(data){
+				if(data.state == 1){
+					layer.alert('删除成功!', {icon: 6, time:2000});
+				}else{
+					layer.alert('删除失败!', {icon: 5, time:2000});
+				}
+				location.reload();
+			});
+		});
+	}
+	

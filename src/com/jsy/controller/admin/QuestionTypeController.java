@@ -76,7 +76,7 @@ public class QuestionTypeController extends BaseController {
 			data.put("pageIndex", "1");
 		}
 		if (CommonUtil.isEmpty(data.get("pageSize"))) {
-			data.put("pageSize", "15");
+			data.put("pageSize", "5");
 		}
 		
 		Map<String, Object> sendPostMapRequest = util.sendPostMapRequest(servicePath + "/getQuestionTypeList", data,
@@ -149,6 +149,22 @@ public class QuestionTypeController extends BaseController {
 	public Map<String, Object> updateQuestionType(Model model, @RequestParam Map<String, String> dataMap) {
 
 		Map<String, Object> sendPostMapRequest = util.sendPostMapRequest(servicePath + "/updateQuestionType", dataMap,
+				UTF8);
+		Map<String, Object> result = JsonUtil.readJson2Map(sendPostMapRequest.get("respContent").toString());
+
+		return result;
+	}
+	
+	/**
+	 * yc 改变分类状态
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/deleteQuestionType")
+	@ResponseBody
+	public Map<String, Object> deleteQuestionType(Model model, @RequestParam Map<String, String> dataMap) {
+
+		Map<String, Object> sendPostMapRequest = util.sendPostMapRequest(servicePath + "/deleteQuestionType", dataMap,
 				UTF8);
 		Map<String, Object> result = JsonUtil.readJson2Map(sendPostMapRequest.get("respContent").toString());
 

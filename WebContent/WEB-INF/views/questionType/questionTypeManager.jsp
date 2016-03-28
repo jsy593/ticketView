@@ -69,7 +69,7 @@
 		                        <td>
 		                        	<c:if test="${list.status == '1' }"><font color="red"><a href="#" class="stop" data-uuid="${list.uuid }">关闭分类</a></font></c:if>
 		                        	<c:if test="${list.status == '0' }"><font color="green"><a href="#" class="start" data-uuid="${list.uuid }">开启分类</a></font></c:if>
-		                        	
+		                        	<button class="btn btn-danger" class="delete" onclick="deleteQuestionType('${list.uuid }')"><i class="icon-trash "></i></button>
 		                        </td>
 		                    </tr>
 		              </c:forEach>            
