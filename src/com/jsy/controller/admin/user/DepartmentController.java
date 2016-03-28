@@ -85,6 +85,17 @@ public class DepartmentController extends BaseController {
 		return result;
 	}
 
+	@RequestMapping(value = "/getDepartmentBySystemIndex")
+	@ResponseBody
+	public Map<String, Object> getDepartmentBySystemIndex(Model model, @RequestParam Map<String, String> dataMap) {
+		
+		dataMap.put("status", "!=-1");//不查询删除状态的部门
+		Map<String, Object> sendPostMapRequest = util.sendPostMapRequest(servicePath + "/selectDeptByMap", dataMap, UTF8);
+		Map<String, Object> result = JsonUtil.readJson2Map(sendPostMapRequest.get("respContent").toString());
+		string2Data(result);
+		model.addAttribute("data", result);
+		return result;
+	}
 	/**
 	 * yc 系统管理员维护部门详细信息
 	 * 

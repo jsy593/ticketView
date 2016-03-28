@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,20 +35,20 @@ public class QuestionTypeController extends BaseController {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/toQuestionType")
-	public String toQuestionType(Model model,@RequestParam Map<String, String> data) {
+	public String toQuestionType(Model model,@RequestParam Map<String, String> data,HttpSession session) {
+		data.remove("fullPath");
+		data.remove("base");
 		model.addAttribute("titleNo", 4);
-		if (CommonUtil.isEmpty(data.get("systemIndex"))) {
-			data.put("systemIndex", "-1");
-		}
 		if (CommonUtil.isEmpty(data.get("pageIndex"))) {
 			data.put("pageIndex", "1");
 		}
 		if (CommonUtil.isEmpty(data.get("pageSize"))) {
-			data.put("pageSize", "15");
+			data.put("pageSize", "5");
 		}
-		
-		data.put("parentId", "0");
+		Map<String, Object> userMap =  (Map<String, Object>) session.getAttribute("userinfo");
+		data.put("userId", userMap.get("uuid").toString());
 		Map<String, Object> sendPostMapRequest = util.sendPostMapRequest(servicePath + "/getQuestionTypeList", data,
 				UTF8);
 		Map<String, Object> result = JsonUtil.readJson2Map(sendPostMapRequest.get("respContent").toString());
@@ -119,7 +121,7 @@ public class QuestionTypeController extends BaseController {
 		Map<String, Object> result = JsonUtil.readJson2Map(sendPostMapRequest.get("respContent").toString());
 		model.addAttribute("data", result);
 
-		return "redirect:toQuestionType?systemIndex=" + dataMap.get("systemIndex").toString();
+		return "redirect:/toQuestionType?departmentId="+dataMap.get("departmentId")+"&systemIndex="+dataMap.get("systemIndex");
 	}
 	/**
 	 * yc 添加问题分类(小)

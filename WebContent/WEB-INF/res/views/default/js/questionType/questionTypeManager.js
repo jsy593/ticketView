@@ -1,29 +1,3 @@
-$(function() {
-	var systemIndex = $(".systemIndex").val();
-	var departmentId;
-	var systemAdminId = $(".systemAdminId").val();
-	init(systemAdminId);
-	function init(uuid) {
-		// 得到系统列表
-		var data = {};
-		data.uuid = uuid;
-		$.post("getSystemManager", data, function(data) {
-			var html = "";
-			if (data.state == '1') {
-				var list = data.list;
-				for (var i = 0; i < list.length; i++) {
-					html += "<ul>";
-					html += "<li><a href='toQuestionType?systemIndex="
-							+ list[i].systemIndex + "'>" + list[i].systemName
-							+ "</a></li>";
-					html += "</ul>";
-				}
-			}
-			$(".systemList").append(html);
-		});
-
-	}
-
 	// 停用&& 启用
 	$(".stop").click(function() {
 		changeState(0, $(this).attr('data-uuid'));
@@ -43,33 +17,43 @@ $(function() {
 		}, "json");
 	}
 
-	// 添加分类
-	$('.addQuestionType').click(
-			function() {
-				if (systemIndex == '-1' || systemIndex == null) {
-					layer.alert('请选择系统！',{icon:5});
-					return false;
+	
+	//获取部门列表
+	$(".js_systemIndex").change(function(){
+		var data = {};
+		data.systemIndex = $(this).val();
+		$.post('getDepartmentBySystemIndex', data, function(data) {
+			var html = '<select class="js_deptUuid form-control col-lg-1" name="deptUuid" >';
+			if (data.state == '1') {
+				var list = data.list;
+				for (var i = 0; i < list.length; i++) {
+					html += '<option value=' + list[i].uuid + '>'
+							+ list[i].name + '</option>';
 				}
-				// 获取 部门列表
-				var data = {};
-				data.systemIndex = systemIndex;
-				$.post('getDepartmentManager', data, function(data) {
-					var html = '';
-					if (data.state == '1') {
-						var list = data.list;
-						for (var i = 0; i < list.length; i++) {
-							html += '<option value=' + list[i].uuid + '>'
-									+ list[i].name + '</option>';
-						}
-					}
-					$(".selectQuestion").append(html);
-				})
-				$.sobox.pop({
-					popTarget : 'div.so-addQuestion-popbox',
-					wrapTarget : false,
-					maskClick : false,
-					title : "添加分类",
-				});
-			})
-
-});
+			}
+			html += "</select>";
+			$(".js_deptUuid").replaceWith(html);
+		});
+	});
+	
+	//显示弹出层
+	function addTypePage(){
+		$(".js_IndexSystem").val($(".js_systemIndex").val());//给弹出层隐藏的系统id赋值
+		$('#spanId').click(); 
+		$(".js-updateSystemName").val($(".js_systemIndex").find("option:selected").text());
+		var data = {};
+		data.systemIndex = $(".js_systemIndex").val();
+		$.post('getDepartmentBySystemIndex', data, function(data) {
+			if (data.state == "1") {
+				$(".js_dept").html("");
+				var html = "";
+				var list = data.list;
+				for (var i = 0; i < list.length; i++) {
+					html += '<option value=' + list[i].uuid + '>'
+							+ list[i].name + '</option>';
+				}
+				$(".js_dept").append(html);
+			}
+		});
+	}
+	
