@@ -20,7 +20,8 @@
 						        		<option value="${system.systemIndex}" <c:if test="${system.systemIndex == data.systemIndex}">selected</c:if>>${system.systemName }</option>
 					        		</c:forEach>
 				        		</select>
-				        		
+				        	</div>
+				        	  <div class="col-lg-3">	
 				        		 <select class="js_deptUuid form-control col-lg-3" name="departmentId" value="${data.departmentId}">
 					        		<c:forEach var="department" items="${data.departmentList }">
 						        		<option value="${department.uuid}" <c:if test="${department.uuid == data.departmentId}">selected</c:if>>${department.name }</option>
